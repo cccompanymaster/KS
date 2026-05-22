@@ -8,10 +8,33 @@
   <title>KS금성익스프레스 | 동탄·용인 포장이사 전문</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+
+  <!-- ============================================
+       로딩 스크린
+       ============================================ -->
+  <div id="preloader" class="preloader" aria-hidden="true">
+    <div class="preloader-bg"></div>
+    <div class="preloader-inner">
+      <div class="preloader-logo">
+        <span class="preloader-mark">
+          <span class="ks-k">K</span><span class="ks-s">S</span>
+        </span>
+      </div>
+      <h1 class="preloader-name">
+        <span>금</span><span>성</span><span>익</span><span>스</span><span>프</span><span>레</span><span>스</span>
+      </h1>
+      <p class="preloader-eng">KS GEUMSEONG EXPRESS</p>
+      <div class="preloader-bar">
+        <span class="preloader-bar-fill"></span>
+      </div>
+      <p class="preloader-tagline">행복을 옮겨드리는 정확한 이사 서비스</p>
+    </div>
+  </div>
 
   <!-- 상단 네비게이션 -->
   <header class="header">
@@ -41,10 +64,20 @@
   <!-- 메인 비주얼 (Hero) -->
   <section class="hero" id="top">
     <div class="hero-bg"></div>
+    <div class="hero-deco">
+      <span class="deco-blob deco-blob-1"></span>
+      <span class="deco-blob deco-blob-2"></span>
+      <span class="deco-blob deco-blob-3"></span>
+      <span class="deco-ring deco-ring-1"></span>
+      <span class="deco-ring deco-ring-2"></span>
+    </div>
     <div class="container hero-inner">
-      <p class="hero-eyebrow">동탄·용인·화성·오산·수원 포장이사 전문</p>
+      <p class="hero-eyebrow">
+        <span class="eyebrow-dot"></span>
+        동탄·용인·화성·오산·수원 포장이사 전문
+      </p>
       <h1 class="hero-title">
-        행복을 옮겨드리는<br />
+        <span class="hero-serif">Premium</span> 행복을 옮겨드리는<br />
         <span class="accent">정확한 이사 서비스</span>
       </h1>
       <p class="hero-sub">

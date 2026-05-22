@@ -1,4 +1,34 @@
+// ============================================
+// 로딩 스크린 제어
+// ============================================
+(function () {
+  document.body.classList.add('loading');
+  const MIN_DISPLAY_MS = 1800;
+  const startedAt = Date.now();
+
+  function hidePreloader() {
+    const elapsed = Date.now() - startedAt;
+    const remaining = Math.max(0, MIN_DISPLAY_MS - elapsed);
+    setTimeout(() => {
+      const pre = document.getElementById('preloader');
+      if (pre) pre.classList.add('hidden');
+      document.body.classList.remove('loading');
+      setTimeout(() => { if (pre) pre.remove(); }, 1000);
+    }, remaining);
+  }
+
+  if (document.readyState === 'complete') {
+    hidePreloader();
+  } else {
+    window.addEventListener('load', hidePreloader);
+    // 안전장치: 폰트/이미지 로드가 너무 오래 걸리면 강제로 닫음
+    setTimeout(hidePreloader, 5000);
+  }
+})();
+
+// ============================================
 // 견적 폼 제출 처리
+// ============================================
 function submitQuote(e) {
   e.preventDefault();
   const form = e.target;
@@ -11,7 +41,6 @@ function submitQuote(e) {
   const to = data.get('to');
   const memo = data.get('memo');
 
-  // SMS 본문 구성 후 전화번호로 안내 (실제 백엔드 연동 전 임시)
   const msg =
     `[KS금성익스프레스 견적 신청]\n` +
     `▪ 이름: ${name}\n` +
@@ -32,7 +61,9 @@ function submitQuote(e) {
   form.reset();
 }
 
-// 모바일 네비게이션
+// ============================================
+// 인터랙션
+// ============================================
 document.addEventListener('DOMContentLoaded', () => {
   // 앵커 클릭 시 모바일 메뉴 닫기
   document.querySelectorAll('.nav a').forEach(a => {
@@ -41,16 +72,15 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // 스크롤 시 헤더 그림자
+  // 스크롤 시 헤더 상태
   const header = document.querySelector('.header');
   if (header) {
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 10) {
-        header.style.boxShadow = '0 2px 12px rgba(0,0,0,0.06)';
-      } else {
-        header.style.boxShadow = 'none';
-      }
-    });
+    const onScroll = () => {
+      if (window.scrollY > 12) header.classList.add('scrolled');
+      else header.classList.remove('scrolled');
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
   }
 
   // 섹션 진입 애니메이션
@@ -59,14 +89,17 @@ document.addEventListener('DOMContentLoaded', () => {
       if (entry.isIntersecting) {
         entry.target.style.opacity = '1';
         entry.target.style.transform = 'translateY(0)';
+        observer.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.1 });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
 
-  document.querySelectorAll('.about-card, .service-card, .strength-card, .target-card, .area-item, .process-step').forEach(el => {
+  document.querySelectorAll(
+    '.about-card, .service-card, .strength-card, .target-card, .area-item, .process-step, .faq-item, .packing-table-wrap'
+  ).forEach((el, i) => {
     el.style.opacity = '0';
-    el.style.transform = 'translateY(20px)';
-    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    el.style.transform = 'translateY(24px)';
+    el.style.transition = `opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1) ${(i % 6) * 0.06}s, transform 0.7s cubic-bezier(0.16, 1, 0.3, 1) ${(i % 6) * 0.06}s`;
     observer.observe(el);
   });
 });
