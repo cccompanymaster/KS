@@ -1,0 +1,19 @@
+{
+  "name": "KS금성익스프레스",
+  "short_name": "KS익스프레스",
+  "description": "동탄·용인·화성·오산·수원 포장이사 전문. 100% 한국인 베테랑 직원, 가족 운영, 합리적인 견적.",
+  "lang": "ko",
+  "start_url": "/KS/",
+  "scope": "/KS/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#1e5fbe",
+  "icons": [
+    {
+      "src": "favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
