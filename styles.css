@@ -114,37 +114,14 @@ input, select, textarea { font-family: inherit; font-size: 1rem; }
   animation: preFadeUp 0.8s var(--ease-out) both;
 }
 .preloader-mark {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  display: inline-block;
   width: 96px;
   height: 96px;
   border-radius: 24px;
-  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-  color: #fff;
-  font-weight: 900;
-  font-size: 2.4rem;
-  letter-spacing: -2px;
-  box-shadow:
-    0 20px 50px rgba(30, 95, 190, 0.35),
-    0 0 0 1px rgba(255, 255, 255, 0.4) inset,
-    0 -8px 20px rgba(255, 255, 255, 0.2) inset;
-  position: relative;
-  overflow: hidden;
+  object-fit: contain;
+  filter: drop-shadow(0 20px 45px rgba(0, 0, 0, 0.3));
+  animation: preLetter 0.7s var(--ease-out) both;
 }
-.preloader-mark::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, rgba(255,255,255,0.3) 0%, transparent 50%);
-  pointer-events: none;
-}
-.ks-k, .ks-s {
-  display: inline-block;
-  animation: preLetter 0.6s var(--ease-out) both;
-}
-.ks-k { animation-delay: 0.1s; }
-.ks-s { animation-delay: 0.25s; }
 
 .preloader-name {
   font-size: 1.6rem;
@@ -256,30 +233,25 @@ input, select, textarea { font-family: inherit; font-size: 1rem; }
   letter-spacing: -0.02em;
 }
 .logo-mark {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  display: block;
   width: 42px;
   height: 42px;
   border-radius: 12px;
-  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-  color: #fff;
-  font-weight: 900;
-  font-size: 1rem;
-  letter-spacing: -1px;
-  box-shadow:
-    0 4px 12px rgba(30, 95, 190, 0.3),
-    0 0 0 1px rgba(255, 255, 255, 0.3) inset;
-  position: relative;
-  overflow: hidden;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.22));
 }
-.logo-mark::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, rgba(255,255,255,0.25), transparent 60%);
+.logo-text {
+  color: var(--text);
+  font-weight: 800;
 }
-.logo-text { color: var(--text); }
+.logo-text em,
+.footer-logo em {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-weight: 700;
+  margin-left: 3px;
+  letter-spacing: 0.01em;
+}
 
 .nav {
   display: flex;
@@ -1374,6 +1346,9 @@ input, select, textarea { font-family: inherit; font-size: 1rem; }
   font-size: 1.2rem;
   font-weight: 900;
   margin-bottom: 16px;
+}
+.footer-logo .logo-mark {
+  box-shadow: 0 0 0 1px rgba(227, 193, 86, 0.35);
 }
 .footer-tagline {
   color: #fff;
