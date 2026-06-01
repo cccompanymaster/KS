@@ -447,6 +447,20 @@ input, select, textarea { font-family: inherit; font-size: 1rem; }
   margin-bottom: 28px;
   text-shadow: 0 2px 30px rgba(0,0,0,0.1);
 }
+.hero-brand-line {
+  display: block;
+  font-size: 0.42em;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #ffe6a8;
+  opacity: 0.92;
+  margin-bottom: 14px;
+  text-shadow: 0 1px 12px rgba(0,0,0,0.25);
+}
+.hero-sub strong {
+  color: #ffd89a;
+  font-weight: 700;
+}
 .hero-serif {
   font-family: 'Cormorant Garamond', serif;
   font-style: italic;
@@ -1357,6 +1371,29 @@ input, select, textarea { font-family: inherit; font-size: 1rem; }
   font-size: 1rem;
 }
 .footer-desc { font-size: 0.9rem; line-height: 1.8; }
+.footer-nap {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 18px;
+  padding: 16px 18px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  font-style: normal;
+  color: rgba(255, 255, 255, 0.85);
+}
+.footer-nap strong {
+  display: inline-block;
+  min-width: 78px;
+  color: rgba(255, 255, 255, 0.55);
+  font-weight: 500;
+  margin-right: 8px;
+}
+.footer-nap a { color: inherit; }
+.footer-nap a:hover { color: #fff; }
 .footer-col h4 {
   color: #fff;
   font-size: 1rem;
