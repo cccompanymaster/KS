@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://cccompanymaster.github.io/KS/sitemap.xml
+Sitemap: https://ks2424.co.kr/sitemap.xml
